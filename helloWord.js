@@ -1,5 +1,16 @@
-const username = 'Antonio'
-console.log('Hello world by ' + username)
+const http = require('http');
 
-// para iniciar un repositorio usamos 
-// git init
+const hostname = 'localhost';
+const port = 3000;
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+
+  // respuesta
+  res.end('Hola Mundo SOY ANTONIO');
+});
+
+server.listen(port, hostname, () => {
+  console.log(`El servidor se está ejecutando en http://${hostname}:${port}/`);
+});
